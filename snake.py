@@ -17,22 +17,27 @@ class Snake:
         screen.title("Snake Xenzia")
         
         for i  in START:
-            snake = Turtle()
-            snake.penup()
-            snake.shape("square")
-            snake.color("white")
-            snake.goto(i)
-            snake.speed(3)
-            self.snakes.append(snake)
-        
+            self.add_body(i)
+            
+    def add_body(self, position):
+        snake = Turtle()
+        snake.penup()
+        snake.shape("square")
+        snake.color("white")
+        snake.goto(position)
+        snake.speed("fastest")
+        self.snakes.append(snake)
+    def extend(self):
+        self.add_body(self.snakes[-1].position())
+            
     def move(self):
        
         for object in range(len(self.snakes)-1, 0, -1):
-            newx = self.snakes[object - 1].xcor()
-            newy = self.snakes[object - 1].ycor()
+            newx = self.snakes[0].xcor()
+            newy = self.snakes[0].ycor()
             self.snakes[object].goto(newx,newy)
             
-            self.snakes[0].forward(20)
+            self.snakes[0].forward(10)
             # self.snakes[0].right(20)
 
     def up(self):
