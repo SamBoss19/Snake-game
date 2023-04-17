@@ -15,7 +15,9 @@ class Snake:
         screen.bgcolor("black")
         screen.tracer(0)
         screen.title("Snake Xenzia")
+        self.createsnake()
         
+    def createsnake(self):
         for i  in START:
             self.add_body(i)
             
@@ -59,6 +61,14 @@ class Snake:
     def left(self):
         if self.snakes[0].heading() != 360:
             self.snakes[0].setheading(180)
+
+    def reset(self):
+        
+        for seg in self.snakes:
+            seg.goto(1000, 1000)
+        self.snakes.clear()
+        self.createsnake()
+        self.snakes[0].forward(10)
         
             
 

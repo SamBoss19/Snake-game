@@ -54,15 +54,19 @@ while game_on:
     screen.onkey(snake.right,"Right")
      #detect wall
     if snake.snakes[0].xcor() > 330 or snake.snakes[0].xcor() < -330 or snake.snakes[0].ycor() > 330 or snake.snakes[0].ycor() < -330:
-        game_on = False
-        score.gameover()
+        # game_on = False
+        # score.gameover()
+        score.reset()
+        snake.reset()
     #detect tail
     for tail in snake.snakes[1:]:
         # if tail == snake.snakes[0]:
         #     pass
         if snake.snakes[0].distance(tail) < 10:
-            game_on= False
-            score.gameover()
+            score.reset()
+            snake.reset()
+            # game_on= False
+            # score.gameover()
 
 
 
